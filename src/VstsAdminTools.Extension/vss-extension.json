@@ -1,0 +1,60 @@
+{
+  "manifestVersion": 1,
+  "id": "vsts-admin-tools#{GitVersion.PreReleaseLabelWithDash}#",
+  "name": "VSTS Admin Tools #{GitVersion.PreReleaseLabel}#",
+  "version": "#{GitVersion.Major}#.#{GitVersion.Minor}#.#{GitVersion.Patch}#",
+  "public": false,
+  "publisher": "nkdAgility",
+  "galleryFlags": [
+    "#{Extension.galleryFlags}#"
+  ],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services.Integration"
+    }
+  ],
+  "description": "The VSTS Admin Tools is an OpenSource collection of command line tools for manageing some of the more tricky areas of VSTS. Feel free to contribute...",
+  "categories": [
+    "Integrate"
+  ],
+  "tags": [
+    "admin",
+    "manage",
+    "team project"
+  ],
+  "links": {
+    "learn": {
+      "uri": "http://vsts-admin-tools.readthedocs.io"
+    },
+    "support": {
+      "uri": "https://github.com/nkdAgility/vsts-admin-tools/issues"
+    },
+    "Getstarted": {
+      "uri": "http://vsts-admin-tools.readthedocs.io"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/nkdAgility/vsts-admin-tools"
+  },
+  "icons": {
+    "default": "images/extension-icon.png"
+  },
+  "branding": {
+    "color": "#1E1E1E",
+    "theme": "dark"
+  },
+  "screenshots": [
+    {
+      "path": "images/screenshot-01.png"
+    }
+  ],
+  "content": {
+    "details": {
+      "path": "README.md"
+    },
+    "license": {
+      "path": "LICENSE.txt"
+    }
+  }
+}
