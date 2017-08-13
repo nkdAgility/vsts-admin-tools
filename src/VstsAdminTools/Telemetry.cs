@@ -1,5 +1,10 @@
-﻿using System;
+﻿using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
+using Microsoft.ApplicationInsights.TraceListener;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +13,7 @@ namespace VstsAdminTools
 {
     public static class Telemetry
     {
-        private const string applicationInsightsKey = "4b9bb17b-c7ee-43e5-b220-ec6db2c33373";
+        private const string applicationInsightsKey = "52861dbb-9439-4dc8-b817-1f46fa85d75d";
         private static TelemetryClient telemetryClient;
         public static bool EnableTrace = false;
 

@@ -14,7 +14,7 @@ namespace VstsAdminTools.Commands
             return RunInternal();
         }
 
-        public abstract int RunInternal()
+        public abstract int RunInternal();
      
 
     }

@@ -1,8 +1,12 @@
-﻿using System;
+﻿using CommandLine;
+using Microsoft.ApplicationInsights.DataContracts;
+using NuGet;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +14,7 @@ namespace VstsAdminTools.ConsoleApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             Telemetry.Current.TrackEvent("ApplicationStart");
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
@@ -55,11 +59,12 @@ namespace VstsAdminTools.ConsoleApp
             Trace.WriteLine(string.Format("Start Time: {0}", startTime.ToUniversalTime()), "[Info]");
             Trace.WriteLine("------------------------------START-----------------------------", "[Info]");
             //////////////////////////////////////////////////
-            int result = (int)Parser.Default.ParseArguments<InitOptions, RunOptions, ExportADGroupsOptions>(args).MapResult(
-                (InitOptions opts) => RunInitAndReturnExitCode(opts),
-                (RunOptions opts) => RunExecuteAndReturnExitCode(opts),
-                (ExportADGroupsOptions opts) => ExportADGroupsCommand.Run(opts, logsPath),
-                errs => 1);
+            int result = 0;
+            //result = (int)Parser.Default.ParseArguments<InitOptions, RunOptions, ExportADGroupsOptions>(args).MapResult(
+            //    (InitOptions opts) => RunInitAndReturnExitCode(opts),
+            //    (RunOptions opts) => RunExecuteAndReturnExitCode(opts),
+            //    (ExportADGroupsOptions opts) => ExportADGroupsCommand.Run(opts, logsPath),
+            //    errs => 1);
             //////////////////////////////////////////////////
             Trace.WriteLine("-------------------------------END------------------------------", "[Info]");
             mainTimer.Stop();
