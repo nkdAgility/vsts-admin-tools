@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chocolatey", "Chocolatey", "{89434800-3004-4621-8677-C14C1D1AA4AF}"
+	ProjectSection(SolutionItems) = preProject
+		src\VstsAdminTools.Chocolatey\chocolateyInstall.ps1 = src\VstsAdminTools.Chocolatey\chocolateyInstall.ps1
+		src\VstsAdminTools.Chocolatey\chocolateyUninstall.ps1 = src\VstsAdminTools.Chocolatey\chocolateyUninstall.ps1
+		src\VstsAdminTools.Chocolatey\vstsadmintools.nuspec = src\VstsAdminTools.Chocolatey\vstsadmintools.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extension", "Extension", "{243265E4-0E5A-4E95-BE7C-B92B7666FF79}"
+	ProjectSection(SolutionItems) = preProject
+		src\VstsAdmin.Extension\LICENSE.txt = src\VstsAdmin.Extension\LICENSE.txt
+		src\VstsAdmin.Extension\README.md = src\VstsAdmin.Extension\README.md
+		src\VstsAdmin.Extension\vss-extension.json = src\VstsAdmin.Extension\vss-extension.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{2BC0808B-6F4D-4635-82FE-1118181DD64F}"
+	ProjectSection(SolutionItems) = preProject
+		docs\getting-started.md = docs\getting-started.md
+		docs\index.md = docs\index.md
+		docs\why.md = docs\why.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "usage", "usage", "{7EE17369-DAA1-4D40-BA15-2E41D418B895}"
+	ProjectSection(SolutionItems) = preProject
+		docs\usage\usage.md = docs\usage\usage.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{FA574C5F-498D-4C1B-BA57-FC28E534C6B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A05A7847-4C75-4E92-B156-F529483688CC}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		GitVersion.yml = GitVersion.yml
+		mkdocs.yml = mkdocs.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{89434800-3004-4621-8677-C14C1D1AA4AF} = {FA574C5F-498D-4C1B-BA57-FC28E534C6B6}
+		{243265E4-0E5A-4E95-BE7C-B92B7666FF79} = {FA574C5F-498D-4C1B-BA57-FC28E534C6B6}
+		{7EE17369-DAA1-4D40-BA15-2E41D418B895} = {2BC0808B-6F4D-4635-82FE-1118181DD64F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A02C043-12F4-4F3C-9E4A-7BDB080982B7}
+	EndGlobalSection
+	GlobalSection(CodealikeProperties) = postSolution
+		SolutionGuid = 51c92075-0694-476b-8366-efd65c9a9b77
+	EndGlobalSection
+EndGlobal
