@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using VstsAdminTools.Commands;
 
 namespace VstsAdminTools.ConsoleApp
 {
@@ -60,11 +61,10 @@ namespace VstsAdminTools.ConsoleApp
             Trace.WriteLine("------------------------------START-----------------------------", "[Info]");
             //////////////////////////////////////////////////
             int result = 0;
-            //result = (int)Parser.Default.ParseArguments<InitOptions, RunOptions, ExportADGroupsOptions>(args).MapResult(
-            //    (InitOptions opts) => RunInitAndReturnExitCode(opts),
-            //    (RunOptions opts) => RunExecuteAndReturnExitCode(opts),
-            //    (ExportADGroupsOptions opts) => ExportADGroupsCommand.Run(opts, logsPath),
-            //    errs => 1);
+
+            result = (int)Parser.Default.ParseArguments<exportUserProfilePicturesOptions>(args).MapResult(
+                (exportUserProfilePicturesOptions opts) => new ExportUserProfilePicturesCommand().Run(opts, logsPath),
+                errs => 1);
             //////////////////////////////////////////////////
             Trace.WriteLine("-------------------------------END------------------------------", "[Info]");
             mainTimer.Stop();
