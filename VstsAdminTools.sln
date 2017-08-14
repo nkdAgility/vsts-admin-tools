@@ -44,6 +44,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VstsAdminTools", "src\VstsA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VstsAdminTools.ConsoleApp", "src\VstsAdminTools.ConsoleApp\VstsAdminTools.ConsoleApp.csproj", "{04E4C4E3-6C2D-478D-AE45-59CDE71C898B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{97E86ABE-68E6-448F-A318-FD23AE7B8269}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{04E4C4E3-6C2D-478D-AE45-59CDE71C898B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04E4C4E3-6C2D-478D-AE45-59CDE71C898B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04E4C4E3-6C2D-478D-AE45-59CDE71C898B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E86ABE-68E6-448F-A318-FD23AE7B8269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E86ABE-68E6-448F-A318-FD23AE7B8269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E86ABE-68E6-448F-A318-FD23AE7B8269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E86ABE-68E6-448F-A318-FD23AE7B8269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{7EE17369-DAA1-4D40-BA15-2E41D418B895} = {2BC0808B-6F4D-4635-82FE-1118181DD64F}
 		{4C91CDB6-9DBD-45A2-8D88-A595795A99C3} = {FA574C5F-498D-4C1B-BA57-FC28E534C6B6}
 		{04E4C4E3-6C2D-478D-AE45-59CDE71C898B} = {FA574C5F-498D-4C1B-BA57-FC28E534C6B6}
+		{97E86ABE-68E6-448F-A318-FD23AE7B8269} = {FA574C5F-498D-4C1B-BA57-FC28E534C6B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A02C043-12F4-4F3C-9E4A-7BDB080982B7}

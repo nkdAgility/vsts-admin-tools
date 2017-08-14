@@ -11,11 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using VstsAdminTools.Commands;
 
-namespace VstsAdminTools.ConsoleApp
+namespace VstsAdminTools.ConsoleApp2
 {
     class Program
     {
-        static int Main(string[] args)
+        static void Main(string[] args)
         {
             Telemetry.Current.TrackEvent("ApplicationStart");
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
@@ -26,7 +26,7 @@ namespace VstsAdminTools.ConsoleApp
             string logsPath = CreateLogsPath();
             //////////////////////////////////////////////////
             Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            Trace.Listeners.Add(new TextWriterTraceListener(Path.Combine(logsPath, "VstsSyncMigrator.log"), "myListener"));
+            Trace.Listeners.Add(new TextWriterTraceListener(Path.Combine(logsPath, "VstsAdminTools.log"), "myListener"));
             //////////////////////////////////////////////////
             Trace.WriteLine(System.Reflection.Assembly.GetExecutingAssembly().GetName().Name, "[Info]");
             Version thisVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
@@ -38,7 +38,7 @@ namespace VstsAdminTools.ConsoleApp
                 if (latestVersion > thisVersion)
                 {
                     Trace.WriteLine(
-                        string.Format("You are currenlty running version {0} and a newer version ({1}) is available. You should upgrade now using Chocolatey command 'choco update vsts-sync-migrator' from the command line.",
+                        string.Format("You are currenlty running version {0} and a newer version ({1}) is available. You should upgrade now using Chocolatey command 'choco update vsts-admin-tools' from the command line.",
                         thisVersion, latestVersion
                         ),
                         "[Warning]");
@@ -83,7 +83,7 @@ namespace VstsAdminTools.ConsoleApp
 #if DEBUG
             Console.ReadKey();
 #endif
-            return result;
+            //return result;
         }
 
 
@@ -100,7 +100,7 @@ namespace VstsAdminTools.ConsoleApp
 
         private static Version GetLatestVersion()
         {
-            string packageID = "vsts-sync-migrator";
+            string packageID = "vsts-admin-tools";
 
             //Connect to the official package repository
             IPackageRepository repo = PackageRepositoryFactory.Default.CreateRepository("https://chocolatey.org/api/v2/");
