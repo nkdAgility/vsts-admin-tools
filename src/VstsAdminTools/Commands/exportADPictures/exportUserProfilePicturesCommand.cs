@@ -39,7 +39,7 @@ namespace VstsAdminTools.Commands
                 var infolks = (from IdentityDescriptor id in SIDS.Members where id.IdentityType == item select id);
                 Trace.WriteLine(string.Format("Found {0} of {1}", infolks.Count(), item));
             }
-            var folks = (from IdentityDescriptor id in SIDS.Members where id.IdentityType == "System.Security.Principal.WindowsIdentity" select id);
+            var folks = (from IdentityDescriptor id in SIDS.Members where id.IdentityType == "System.Security.Principal.WindowsIdentity" || id.IdentityType == "Microsoft.IdentityModel.Claims.ClaimsIdentity" select id);
 
             DirectoryContext objContext = new DirectoryContext(DirectoryContextType.Domain, opts.Domain, opts.Username, opts.Password);
             Domain objDomain = Domain.GetDomain(objContext);
@@ -51,11 +51,22 @@ namespace VstsAdminTools.Commands
                 try
                 {
                     TeamFoundationIdentity i = ims2.ReadIdentity(IdentitySearchFactor.Identifier, id.Identifier, MembershipQuery.Direct, ReadIdentityOptions.None);
-                    if (!(i == null) && i.IsContainer == false)
+                    Trace.WriteLine(i.DisplayName);
+                    if (!(i == null) && (i.IsContainer == false))
                     {
+                        if ((!i.DisplayName.StartsWith("Microsoft.") && (!i.DisplayName.StartsWith("OssManagement"))))
+                            { 
                         DirectoryEntry d = new DirectoryEntry(ldapName, opts.Username, opts.Password);
                         DirectorySearcher dssearch = new DirectorySearcher(d);
-                        dssearch.Filter = string.Format("(sAMAccountName={0})", i.UniqueName.Split(char.Parse(@"\"))[1]);
+                        if (i.UniqueName.Contains("@"))
+                            {
+                                dssearch.Filter = string.Format("(sAMAccountName={0})", i.UniqueName.Split(char.Parse(@"@"))[0]);
+                            }
+                        else
+                            {
+                                dssearch.Filter = string.Format("(sAMAccountName={0})", i.UniqueName.Split(char.Parse(@"\"))[1]);
+                            }
+                        
                         SearchResult sresult = dssearch.FindOne();
                         WebClient webClient = new WebClient();
                         webClient.Credentials = CredentialCache.DefaultNetworkCredentials;
@@ -84,7 +95,7 @@ namespace VstsAdminTools.Commands
                             }
                         }
                     }
-
+                    }
                 }
                 catch (Exception ex)
                 {

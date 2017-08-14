@@ -15,7 +15,7 @@ namespace VstsAdminTools.ConsoleApp2
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             Telemetry.Current.TrackEvent("ApplicationStart");
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
@@ -83,7 +83,7 @@ namespace VstsAdminTools.ConsoleApp2
 #if DEBUG
             Console.ReadKey();
 #endif
-            //return result;
+            return result;
         }
 
 
@@ -105,7 +105,15 @@ namespace VstsAdminTools.ConsoleApp2
             //Connect to the official package repository
             IPackageRepository repo = PackageRepositoryFactory.Default.CreateRepository("https://chocolatey.org/api/v2/");
             var version = repo.FindPackagesById(packageID).Max(p => p.Version);
-            return new Version(version.ToString());
+            if (version==null)
+            {
+                return new Version("0.0.0.0");
+            }
+            else
+            {
+                return new Version(version.ToString());
+            }
+            
         }
 
         private static bool IsOnline()
