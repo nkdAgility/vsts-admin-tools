@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace VstsAdminTools.Commands
 {
     [Verb("exportpictures", HelpText = "Iterates through all of your Active Directory users and exports thier Profile picture from AD.")]
-    public class exportUserProfilePicturesOptions :OptionsBase
+    public class ExportPicturesOptions :OptionsBase
     {
         [Option('o', "outpath", Required = true, HelpText = "Path to output folder.")]
         public string OutPath { get; set; }

@@ -14,12 +14,12 @@ using System.Threading.Tasks;
 
 namespace VstsAdminTools.Commands
 {
-    public class ExportUserProfilePicturesCommand : CommandBase<exportUserProfilePicturesOptions>
+    public class ExportPicturesCommand : CommandBase<ExportPicturesOptions>
     {
 
         //private readonly TfsTeamService teamService;
         //private readonly ProjectInfo projectInfo;
-        public override int RunInternal(exportUserProfilePicturesOptions opts)
+        public override int RunInternal(ExportPicturesOptions opts)
         {
             if (!Directory.Exists(opts.OutPath))
             {

@@ -62,8 +62,9 @@ namespace VstsAdminTools.ConsoleApp2
             //////////////////////////////////////////////////
             int result = 0;
 
-            result = (int)Parser.Default.ParseArguments<exportUserProfilePicturesOptions>(args).MapResult(
-                (exportUserProfilePicturesOptions opts) => new ExportUserProfilePicturesCommand().Run(opts, logsPath),
+            result = (int)Parser.Default.ParseArguments<ExportPicturesOptions, ImportPicturesOptions>(args).MapResult(
+                (ExportPicturesOptions opts) => new ExportPicturesCommand().Run(opts, logsPath),
+                (ImportPicturesOptions opts) => new ImportPicturesCommand().Run(opts, logsPath),
                 errs => 1);
             //////////////////////////////////////////////////
             Trace.WriteLine("-------------------------------END------------------------------", "[Info]");

@@ -16,8 +16,8 @@ namespace VstsAdminTools.ConsoleApp.IntegrationTests
             int result = 0;
             string[] args = new string[] { "" };
 
-            result = (int)Parser.Default.ParseArguments<exportUserProfilePicturesOptions>(args).MapResult(
-                (exportUserProfilePicturesOptions opts) => new ExportUserProfilePicturesCommand().Run(opts, CreateLogsPath()),
+            result = (int)Parser.Default.ParseArguments<ExportPicturesOptions>(args).MapResult(
+                (ExportPicturesOptions opts) => new ExportPicturesCommand().Run(opts, CreateLogsPath()),
                 errs => 1);
         }
         private static string CreateLogsPath()
