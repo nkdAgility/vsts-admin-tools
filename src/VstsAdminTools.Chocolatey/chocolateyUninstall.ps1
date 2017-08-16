@@ -1,5 +1,5 @@
 $toolsLoc = Get-ToolsLocation
-$$vstsadmintoolspath =Join-Path -Path $toolsLoc -ChildPath "\VstsAdminTools"
+$vstsadmintoolspath = Join-Path -Path $toolsLoc -ChildPath "\VstsAdminTools"
 
 Uninstall-ChocolateyZipPackage '$vstsadmintools' 'vstsadmintools-#{GITVERSION.FULLSEMVER}#.zip'
 
