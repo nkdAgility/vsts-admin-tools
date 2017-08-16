@@ -24,6 +24,3 @@ The VSTS Admin Tools allow you to perform many administrative tasks against Micr
  You can [install from Chocolatey](https://chocolatey.org/packages/vsts-sync-migrator/) 
 
 
-
-
-
