@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chocolatey", "Chocolatey", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extension", "Extension", "{243265E4-0E5A-4E95-BE7C-B92B7666FF79}"
 	ProjectSection(SolutionItems) = preProject
-		src\VstsAdmin.Extension\LICENSE.txt = src\VstsAdmin.Extension\LICENSE.txt
-		src\VstsAdmin.Extension\README.md = src\VstsAdmin.Extension\README.md
-		src\VstsAdmin.Extension\vss-extension.json = src\VstsAdmin.Extension\vss-extension.json
+		src\VstsAdminTools.Extension\LICENSE.txt = src\VstsAdminTools.Extension\LICENSE.txt
+		src\VstsAdminTools.Extension\README.md = src\VstsAdminTools.Extension\README.md
+		src\VstsAdminTools.Extension\vss-extension.json = src\VstsAdminTools.Extension\vss-extension.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{2BC0808B-6F4D-4635-82FE-1118181DD64F}"
