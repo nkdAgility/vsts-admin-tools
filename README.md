@@ -31,6 +31,3 @@ Github Sync: ![GitHub Build & Sync](https://nkdagility.visualstudio.com/_apis/pu
  You can [install from Chocolatey](https://chocolatey.org/packages/vsts-admin-tools/) 
 
 
-
-
-
