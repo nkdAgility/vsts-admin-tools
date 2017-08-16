@@ -6,7 +6,7 @@
   "public": false,
   "publisher": "nkdAgility",
   "galleryFlags": [
-    "#{Extension.galleryFlags}#"
+    "Preview"
   ],
   "targets": [
     {
