@@ -28,6 +28,11 @@ namespace VstsAdminTools.Commands
                 Directory.CreateDirectory(opts.OutPath);
             }
 
+            if (opts.CollectionURL.ToString().Contains("visualstudio.com"))
+            {
+                throw new InvalidDomainException("Unable to upload pictures to VSTS due to API/Permission restrictions.");
+            }
+
             TfsTeamProjectCollection collection = new TfsTeamProjectCollection(opts.CollectionURL);
             collection.EnsureAuthenticated();
             IIdentityManagementService2 ims2 = (IIdentityManagementService2)collection.GetService(typeof(IIdentityManagementService2));

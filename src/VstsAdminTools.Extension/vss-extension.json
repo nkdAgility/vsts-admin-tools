@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
-  "id": "vsts-admin-tools#{GitVersion.PreReleaseLabelWithDash}#",
-  "name": "VSTS Admin Tools #{GitVersion.PreReleaseLabel}#",
+  "id": "vsts-admin-tools",
+  "name": "VSTS Admin Tools",
   "version": "#{GitVersion.Major}#.#{GitVersion.Minor}#.#{GitVersion.Patch}#",
   "public": false,
   "publisher": "nkdAgility",
