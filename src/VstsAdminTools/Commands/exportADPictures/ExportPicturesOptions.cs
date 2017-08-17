@@ -21,5 +21,7 @@ namespace VstsAdminTools.Commands
         public string Password { get; set; }
 [Option('m', "picturemask", Required = true, HelpText = "Mask in the format http://comp.portal.com/{0}.jpg")]
         public string CorporatePictureMask { get; set; }
+[Option('n', "adPropertyName", Required = true, HelpText = "Property to match to picturemask from Active Directory")]
+        public string ADPropertyName { get; set; }
     }
 }

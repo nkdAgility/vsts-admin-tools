@@ -28,9 +28,15 @@ The VSTS Admin Tools allow you to perform many administrative tasks against Micr
 
  - [Getting Started](http://vsts-admin-tools.readthedocs.io/en/latest/getting-started)
  - [Documentation](http://vsts-admin-tools.readthedocs.io)
- - [Contributing](http://vsts-admin-tools.readthedocs.io/en/latest/#contributing)
  - [Why VSTS Admin Tools](http://vsts-admin-tools.readthedocs.io/en/latest/why)
  - [Usage](http://vsts-admin-tools.readthedocs.io/en/latest/usage/usage/)
+
+ ## Usage And Contributing
+
+  - [Contributing](https://github.com/nkdAgility/vsts-admin-tools/blob/master/CONTRIBUTING.md)
+  - [Code of Conduct](https://github.com/nkdAgility/vsts-admin-tools/blob/master/CODE_OF_CONDUCT.md)
+  - [Licence](https://github.com/nkdAgility/vsts-admin-tools/blob/master/LICENSE)
+
 
 ## Getting the Tools
 

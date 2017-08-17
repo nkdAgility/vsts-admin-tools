@@ -4,5 +4,8 @@ pages:
 - Getting Started: getting-started.md
 - Usage:
   - Usage: usage/usage.md
+  - Export Membership: usage/exportAzureAD.md
+  - Export Pictures: usage/exportPictures.md
+  - Import Pictures: usage/importpictures.md
 - Why: why.md 
 theme: mkdocs

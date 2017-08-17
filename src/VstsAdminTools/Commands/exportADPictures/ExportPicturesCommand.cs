@@ -77,7 +77,7 @@ namespace VstsAdminTools.Commands
                             {
                                 DirectoryEntry deUser = new DirectoryEntry(sresult.Path, opts.Username, opts.Password);
                                 Trace.WriteLine(string.Format("{0} [PROCESS] {1}: {2}", current, deUser.Name, newImage));
-                                string empPic = string.Format(opts.CorporatePictureMask, deUser.Properties["employeeNumber"].Value);
+                                string empPic = string.Format(opts.CorporatePictureMask, deUser.Properties[opts.ADPropertyName].Value);
                                 try
                                 {
 

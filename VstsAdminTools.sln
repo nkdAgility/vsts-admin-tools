@@ -26,6 +26,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{2BC0808B-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "usage", "usage", "{7EE17369-DAA1-4D40-BA15-2E41D418B895}"
 	ProjectSection(SolutionItems) = preProject
+		docs\usage\exportAzureAD.md = docs\usage\exportAzureAD.md
+		docs\usage\exportPictures.md = docs\usage\exportPictures.md
+		docs\usage\importpictures.md = docs\usage\importpictures.md
 		docs\usage\usage.md = docs\usage\usage.md
 	EndProjectSection
 EndProject
