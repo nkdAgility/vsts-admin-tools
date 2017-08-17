@@ -12,9 +12,11 @@ namespace VstsAdminTools.Commands
 {
     public abstract class CommandBase<TOptions> where TOptions : OptionsBase
     {
+        internal string LogPathRoot;
 
         public int Run(TOptions opts, string logPath)
         {
+            LogPathRoot = logPath;
             var verbAttribute = typeof(TOptions).GetCustomAttributes(typeof(VerbAttribute), true).FirstOrDefault() as VerbAttribute;
             Telemetry.Current.TrackEvent(string.Format("run-{0}-start", verbAttribute.Name));
             string exportPath = CreateExportPath(logPath, verbAttribute.Name);
@@ -22,8 +24,17 @@ namespace VstsAdminTools.Commands
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             //////////////////////////////////////////////////
-            int output =  RunInternal(opts);
-            //////////////////////////////////////////////////
+            int output = 0;
+            try
+            {
+                output = RunInternal(opts);
+            }
+            catch (Exception ex)
+            {
+                Telemetry.Current.TrackException(ex);
+                Trace.TraceError(ex.ToString());
+                output = 1;
+            }
             //////////////////////////////////////////////////
             stopwatch.Stop();
             Dictionary<string, double> metrics = new Dictionary<string, double>();

@@ -62,9 +62,10 @@ namespace VstsAdminTools.ConsoleApp2
             //////////////////////////////////////////////////
             int result = 0;
 
-            result = (int)Parser.Default.ParseArguments<ExportPicturesOptions, ImportPicturesOptions>(args).MapResult(
+            result = (int)Parser.Default.ParseArguments<ExportPicturesOptions, ImportPicturesOptions, ExportAzureADOptions>(args).MapResult(
                 (ExportPicturesOptions opts) => new ExportPicturesCommand().Run(opts, logsPath),
                 (ImportPicturesOptions opts) => new ImportPicturesCommand().Run(opts, logsPath),
+                (ExportAzureADOptions opts) => new ExportAzureADCommand().Run(opts, logsPath),
                 errs => 1);
             //////////////////////////////////////////////////
             Trace.WriteLine("-------------------------------END------------------------------", "[Info]");

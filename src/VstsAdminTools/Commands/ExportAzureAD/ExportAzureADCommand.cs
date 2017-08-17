@@ -16,7 +16,9 @@ namespace VstsAdminTools.Commands
     {
         public override int RunInternal(ExportAzureADOptions opts)
         {
-            StreamWriter sw = File.CreateText(Path.Combine(opts.OutPath, "AzureADExport.csv"));
+            opts.OutPath = opts.OutPath ?? this.LogPathRoot;
+
+            StreamWriter sw = File.CreateText(Path.Combine(opts.OutPath, "IdentityList.csv"));
             sw.AutoFlush = true;
             using (var csv = new CsvWriter(sw))
             {
@@ -41,22 +43,50 @@ namespace VstsAdminTools.Commands
                     {
                         Trace.WriteLine(string.Format("    {0}", appGroup.DisplayName));
                         TeamFoundationIdentity sourceAppGroup = sourceIMS2.ReadIdentity(appGroup.Descriptor, MembershipQuery.Expanded, ReadIdentityOptions.None);
-                        foreach (IdentityDescriptor child in sourceAppGroup.Members.Where(x => x.IdentityType == "Microsoft.TeamFoundation.Identity"))
+                        foreach (IdentityDescriptor child in sourceAppGroup.Members.Where(x => x.IdentityType == "Microsoft.TeamFoundation.Identity" || x.IdentityType == "Microsoft.IdentityModel.Claims.ClaimsIdentity"))
                         {
 
                             TeamFoundationIdentity sourceChildIdentity = sourceIMS2.ReadIdentity(IdentitySearchFactor.Identifier, child.Identifier, MembershipQuery.None, ReadIdentityOptions.ExtendedProperties);
-
-                            if ((string)sourceChildIdentity.GetProperty("SpecialType") == "AzureActiveDirectoryApplicationGroup")
+                            var SpecialType = (string)sourceChildIdentity.GetProperty("SpecialType");
+                            var Account = (string)sourceChildIdentity.GetProperty("Account");
+                            object DirectoryAlias;
+                            object Mail;
+                            sourceChildIdentity.TryGetProperty("DirectoryAlias", out DirectoryAlias);
+                            sourceChildIdentity.TryGetProperty("Mail", out Mail);
+                            switch (SpecialType)
                             {
-                                Trace.WriteLine(string.Format("     Suspected AD Group {0}", sourceChildIdentity.DisplayName));
-                                csv.WriteRecord<AzureAdGroupItem>(new AzureAdGroupItem
-                                {
-                                    TeamProject = sourceTeamProject.Resource.DisplayName,
-                                    ApplciationGroup = sourceTeamProject.Resource.DisplayName,
-                                    Account = (string)sourceChildIdentity.GetProperty("Account"),
-                                    Mail = (string)sourceChildIdentity.GetProperty("Mail"),
-                                    DirectoryAlias = (string)sourceChildIdentity.GetProperty("DirectoryAlias")
-                                });
+                                case "AzureActiveDirectoryApplicationGroup":
+                                    Trace.WriteLine(string.Format("     Found AD Group {0}", sourceChildIdentity.DisplayName));
+                                    csv.WriteRecord<AzureAdGroupItem>(new AzureAdGroupItem
+                                    {
+                                        TeamProject = sourceTeamProject.Resource.DisplayName,
+                                        ApplciationGroup = sourceTeamProject.Resource.DisplayName,
+                                        Account = Account,
+                                        Mail = (string)Mail,
+                                        DirectoryAlias = (string)DirectoryAlias
+                                    });
+                                    break;
+                                case "Generic":
+                                    if (sourceChildIdentity.IsContainer)
+                                    {
+                                        Trace.WriteLine(string.Format("Skipping {0} | {1} - TF GROUP", SpecialType, Account));
+
+                                    } else
+                                    {
+                                        Trace.WriteLine(string.Format("     Found AD User {0}", sourceChildIdentity.DisplayName));
+                                        csv.WriteRecord<AzureAdGroupItem>(new AzureAdGroupItem
+                                        {
+                                            TeamProject = sourceTeamProject.Resource.DisplayName,
+                                            ApplciationGroup = sourceTeamProject.Resource.DisplayName,
+                                            Account = Account,
+                                            Mail = (string)Mail,
+                                            DirectoryAlias = (string)DirectoryAlias
+                                        });
+                                    }                                   
+                                    break;
+                                default:
+                                    Trace.WriteLine(string.Format("Skipping {0} | {1} - UNKNOWN", SpecialType, Account));
+                                    break;
                             }
                         }
                     }
@@ -67,5 +97,6 @@ namespace VstsAdminTools.Commands
             sw.Close();
             return 0;
         }
+
     }
 }
