@@ -4,10 +4,5 @@ pages:
 - Getting Started: getting-started.md
 - Usage:
   - Usage: usage/usage.md
-  - Command Line: usage/command-line.md
-  - NuGet Library: usage/nuget-library.md
-- Configuration: configuration.md
-- Server Configuration: server-configuration.md 
 - Why: why.md 
-- FAQ: faq.md
-theme: readthedocs
+theme: mkdocs
