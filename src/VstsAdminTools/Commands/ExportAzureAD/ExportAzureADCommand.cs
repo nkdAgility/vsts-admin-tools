@@ -60,7 +60,7 @@ namespace VstsAdminTools.Commands
                                     csv.WriteRecord<AzureAdGroupItem>(new AzureAdGroupItem
                                     {
                                         TeamProject = sourceTeamProject.Resource.DisplayName,
-                                        ApplciationGroup = sourceTeamProject.Resource.DisplayName,
+                                        ApplciationGroup = appGroup.DisplayName,
                                         Account = Account,
                                         Mail = (string)Mail,
                                         DirectoryAlias = (string)DirectoryAlias
@@ -77,7 +77,7 @@ namespace VstsAdminTools.Commands
                                         csv.WriteRecord<AzureAdGroupItem>(new AzureAdGroupItem
                                         {
                                             TeamProject = sourceTeamProject.Resource.DisplayName,
-                                            ApplciationGroup = sourceTeamProject.Resource.DisplayName,
+                                            ApplciationGroup = appGroup.DisplayName,
                                             Account = Account,
                                             Mail = (string)Mail,
                                             DirectoryAlias = (string)DirectoryAlias
