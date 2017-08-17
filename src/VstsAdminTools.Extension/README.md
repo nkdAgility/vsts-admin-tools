@@ -13,7 +13,7 @@ The VSTS Admin Tools allow you to perform many administrative tasks against Micr
  - [Getting Started](http://vsts-admin-tools.readthedocs.io/en/latest/getting-started)
  - [Documentation](http://vsts-admin-tools.readthedocs.io)
  - [Contributing](http://vsts-admin-tools.readthedocs.io/en/latest/#contributing)
- - [Why VSTS Bulk Data Editor](http://vsts-admin-tools.readthedocs.io/en/latest/why)
+ - [Why VSTS Admin Tools](http://vsts-admin-tools.readthedocs.io/en/latest/why)
  - [Usage](http://vsts-admin-tools.readthedocs.io/en/latest/usage/usage/)
 
  ## Getting the Tools
